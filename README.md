@@ -3,74 +3,29 @@
 Material Design Admin dashboard and Users roles for scaffolding new projects.
 
 ## Thanks to:
-Propeler css admin theme (v1.1)
+Propeler CSS Admin Theme (v1.2)
 
-* [Prerequisites](#markdown-header-prerequisites)
-* [Installation](#markdown-header-installation)
-    * [Install](#markdown-header-install)
-    * [Publish](#markdown-header-publish)
-* [Configuration](#markdown-header-configuration)
-    * [Database](#markdown-header-database)
-    * [Routes](#markdown-header-routes)
-* [Usage](#markdown-header-usage)
-    * [Blade](#markdown-header-blade)
-
-## Prerequisites
-
-- [Images](https://bitbucket.org/ivirtual-la/images-package)
+* [Installation](#installation)
+    * [Install](#install)
+    * [Publish](#publish)
+* [Configuration](#configuration)
+    * [Database](#database)
+    * [Routes](#routes)
+* [Usage](#usage)
+    * [Blade](#blade)
 
 ## Installation
 
 ### Install
-Add in the `composer.json` file the packagist resositories.
-
-```json
-"repositories": [
-        { "type": "git", "url": "https://ivirtual-la@bitbucket.org/ivirtual-la/images-package.git" },
-        { "type": "git", "url": "https://ivirtual-la@bitbucket.org/ivirtual-la/admin-theme-package.git" },
-    ]
-```
 
 Run the following commands to install the package.
 ```shell
-// Install the blog.
-$ composer require "ivirtual/admin-theme:0.*"
+composer require iVirtual-la/laravel-admin-theme
 ```
 
 ### Publish
 
-Update `config/app.php` by adding an entry for the service provider.
-```php
-'providers' => [
-
-    // iVirtual Admin Theme Service Provider.
-    iVirtual\AdminTheme\AdminThemeServiceProvider::class,
-
-    // Laratrust Service provider if not set yet.
-    Laratrust\LaratrustServiceProvider::class,
-
-],
-
-'aliases' => [
-
-    // Laratrust alias.
-    'Laratrust'   => Laratrust\LaratrustFacade::class,
-
-]
-```
-
-Update `app/Http/Kernel.php` by adding the Laratrust Middlewares.
-```php
-protected $routeMiddleware = [
-
-    // Laratrust middlewares.
-    'role' => \Laratrust\Middleware\LaratrustRole::class,
-    'permission' => \Laratrust\Middleware\LaratrustPermission::class,
-    'ability' => \Laratrust\Middleware\LaratrustAbility::class,
-
-];
-
-```
+If you want to customice the roles and permission tables, or if your User model use UUID check out the `spatie/laravel-permission` documentation [https://github.com/spatie/laravel-permission](https://github.com/spatie/laravel-permission)
 
 **Run the following commands:**
 

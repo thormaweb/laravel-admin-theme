@@ -2,8 +2,8 @@
 
 namespace iVirtual\AdminTheme;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+// use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -206,45 +206,45 @@ class AdminThemeServiceProvider extends ServiceProvider
      */
     public function registerValidationRules()
     {
-        Validator::extend('old_password', function ($attribute, $value, $parameters, $validator) {
+        // Validator::extend('old_password', function ($attribute, $value, $parameters, $validator) {
 
-            $user = DB::table('users')->where('id', current($parameters))->first();
+        //     $user = DB::table('users')->where('id', current($parameters))->first();
 
-            if ($user === null) {
-                return false;
-            }
+        //     if ($user === null) {
+        //         return false;
+        //     }
 
-            return Hash::check($value, $user->password);
-        });
+        //     return Hash::check($value, $user->password);
+        // });
 
-        Validator::extend('admin_theme_date', function ($attribute, $value, $parameters, $validator) {
+        // Validator::extend('admin_theme_date', function ($attribute, $value, $parameters, $validator) {
 
-            return array_get(date_parse_from_format(config('admin-theme.date_formats.laravel'), $value), 'error_count') === 0;
-        });
+        //     return array_get(date_parse_from_format(config('admin-theme.date_formats.laravel'), $value), 'error_count') === 0;
+        // });
 
-        Validator::extendImplicit('sometimes_or_nullable_or_required', function ($attribute, $value, $parameters, \Illuminate\Validation\Validator $validator) {
+        // Validator::extendImplicit('sometimes_or_nullable_or_required', function ($attribute, $value, $parameters, \Illuminate\Validation\Validator $validator) {
 
-            if (!array_has($validator->attributes(), $attribute) || is_null($value)) {
+        //     if (!array_has($validator->attributes(), $attribute) || is_null($value)) {
 
-                $validator->addRules([
-                    $attribute => [
-                        'sometimes',
-                        'nullable'
-                    ]
-                ]);
+        //         $validator->addRules([
+        //             $attribute => [
+        //                 'sometimes',
+        //                 'nullable'
+        //             ]
+        //         ]);
 
-                return true;
-            }
+        //         return true;
+        //     }
 
-            if (is_string($value)) {
-                return $value !== '';
-            }
+        //     if (is_string($value)) {
+        //         return $value !== '';
+        //     }
 
-            if (is_array($value)) {
-                return count($value) > 0;
-            }
+        //     if (is_array($value)) {
+        //         return count($value) > 0;
+        //     }
 
-            return false;
-        });
+        //     return false;
+        // });
     }
 }
