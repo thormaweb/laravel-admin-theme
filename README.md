@@ -1,9 +1,11 @@
 # [iVirtual.la](https://ivirtual.la) Laravel Admin Theme
 
-Material Design Admin dashboard with out of the box Users permissions for scaffolding new projects.
+Material Design Admin dashboard with out of the box Users permissions and tons of Blade components and helpers for scaffolding new projects.
 
 ## Thanks to:
-Propeler CSS Admin Theme (v1.2)
+To (Propeller](https://github.com/digicorp/propeller) because we use his CSS Admin Theme (v1.2), and to [Spatie](https://github.com/spatie) for the amazing laravel packages (we use Permissions and Media Library)
+
+## Index
 
 * [Installation](#installation)
     * [Install](#install)
