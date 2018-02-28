@@ -2,15 +2,14 @@
 
 namespace iVirtual\AdminTheme\Traits;
 
+use Spatie\MediaLibrary\Media;
+use Spatie\Image\Manipulations;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
 trait AdminThemeUserTrait
 {
     use HasMediaTrait, HasRoles;
-
-    static $IMAGES_PATH = 'avatars';
 
     /**
      * Get Avatar Url
@@ -60,6 +59,5 @@ trait AdminThemeUserTrait
             ->background('ffffff');
 
     }
-
 
 }
