@@ -27,9 +27,8 @@ class SetupCommand extends Command
      */
     protected $calls = [
         'admin-theme:add-user-trait' => 'Adding AdminThemeUserTrait to User model',
-        'laratrust:migration' => 'Add laratrust migrations.',
-        'laratrust:role' => 'Creating Role model',
-        'laratrust:permission' => 'Creating Permission model'
+        'vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="config"' => 'Publish Media Library config file.',
+        'vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"' => 'Publish Permissions config file.'
     ];
 
     /**

@@ -29,6 +29,7 @@ composer require iVirtual-la/laravel-admin-theme
 
 If you want to customice the roles and permission tables, or if your User model use UUID check out the `spatie/laravel-permission` documentation [https://github.com/spatie/laravel-permission](https://github.com/spatie/laravel-permission)
 
+Olso the Media Library package has custom config file (optional).
 **Run the following commands:**
 
 ```shell

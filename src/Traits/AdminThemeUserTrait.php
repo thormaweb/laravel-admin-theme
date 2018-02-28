@@ -2,13 +2,13 @@
 
 namespace iVirtual\AdminTheme\Traits;
 
-// use iVirtual\Images\Traits\ImagesTrait;
-// use Laratrust\Traits\LaratrustUserTrait;
+use Spatie\Permission\Traits\HasRoles;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
 trait AdminThemeUserTrait
 {
-    use ImagesTrait,
-        LaratrustUserTrait;
+    use HasMediaTrait, HasRoles;
 
     static $IMAGES_PATH = 'avatars';
 
@@ -17,8 +17,8 @@ trait AdminThemeUserTrait
      */
     public function getAvatarUrlAttribute()
     {
-        if ($this->featuredImage()->exists()) {
-            return url($this->featuredImage->path);
+        if ($this->getFirstMediaUrl('images')) {
+            return $this->getFirstMediaUrl('images', 'avatar');
         }
 
         return url(config('admin-theme.avatar'));
@@ -52,5 +52,14 @@ trait AdminThemeUserTrait
     {
         return $this->name;
     }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('avatar')
+            ->fit(Manipulations::FIT_FILL, 512, 512)
+            ->background('ffffff');
+
+    }
+
 
 }
