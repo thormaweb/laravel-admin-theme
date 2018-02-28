@@ -2,8 +2,6 @@
 
 namespace iVirtual\AdminTheme;
 
-// use Illuminate\Support\Facades\DB;
-// use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;

@@ -2,8 +2,8 @@
 
 namespace iVirtual\AdminTheme\Traits;
 
-use iVirtual\Images\Traits\ImagesTrait;
-use Laratrust\Traits\LaratrustUserTrait;
+// use iVirtual\Images\Traits\ImagesTrait;
+// use Laratrust\Traits\LaratrustUserTrait;
 
 trait AdminThemeUserTrait
 {
@@ -48,6 +48,9 @@ trait AdminThemeUserTrait
      *
      * @return string
      */
-    public abstract function getFullName();
+    public function getFullName()
+    {
+        return $this->name;
+    }
 
 }
