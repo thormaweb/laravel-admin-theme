@@ -4,7 +4,7 @@
 
     @adminTheme('card', ['title' => __('admin-theme::user.index')])
 
-        @permission('users-create')
+        @can('users-create')
 
             @slot('actions')
 
@@ -12,7 +12,7 @@
 
             @endslot
 
-        @endpermission
+        @endcan
 
         @adminTheme('table', ['actions' => '25'])
 
@@ -50,7 +50,7 @@
                             ])
                         @endif
 
-                        @permission('users-update')
+                        @can('users-update')
 
                             @adminThemeButton([
                                 'url' => url()->route('ivi_admin_theme_user_edit', ['id' => $user->id]),
@@ -60,9 +60,9 @@
                                 'hover' => __('admin-theme::user.edit')
                             ])
 
-                        @endpermission
+                        @endcan
 
-                        @permission('users-delete')
+                        @can('users-delete')
 
                             @adminThemeButton([
                                 'url' => url()->route('ivi_admin_theme_user_delete', ['id' => $user->id]),
@@ -72,7 +72,7 @@
                                 'hover' => __('admin-theme::user.delete')
                             ])
 
-                        @endpermission
+                        @endcan
 
                     </td>
 
