@@ -27,8 +27,7 @@ class SetupCommand extends Command
      */
     protected $calls = [
         'admin-theme:add-user-trait' => 'Adding AdminThemeUserTrait to User model',
-        'php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="config"' => 'Publish Media Library config file.',
-        'php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"' => 'Publish Permissions config file.'
+        ['vendor:publish', ['--provider' => 'Spatie\Permission\PermissionServiceProvider', '--tag' => 'config']] => 'Publishing Permissions config file.'
     ];
 
     /**
