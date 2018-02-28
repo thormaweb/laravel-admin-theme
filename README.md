@@ -1,6 +1,6 @@
-# iVirtual.la Laravel Admin Theme
+# [iVirtual.la](https://ivirtual.la) Laravel Admin Theme
 
-Material Design Admin dashboard and Users roles for scaffolding new projects.
+Material Design Admin dashboard with out of the box Users permissions for scaffolding new projects.
 
 ## Thanks to:
 Propeler CSS Admin Theme (v1.2)
@@ -43,14 +43,6 @@ Possible tags for the `vendor:publish` command:
 - public
 
 ## Configuration
-
-**First, go to the `App\User` model and implement the abstract method for the full name attribute.**
-```
-public function getFullName()
-{
-   return $this->name;
-}
-```
 
 Run the setup of the admin theme.
 ```shell

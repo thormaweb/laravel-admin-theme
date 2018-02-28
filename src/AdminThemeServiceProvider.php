@@ -50,8 +50,6 @@ class AdminThemeServiceProvider extends ServiceProvider
         if (class_exists('\Blade')) {
             $this->registerBladeDirectives();
         }
-
-        $this->registerValidationRules();
     }
 
     /**
@@ -195,54 +193,5 @@ class AdminThemeServiceProvider extends ServiceProvider
             __DIR__ . '/../config/admin-theme.php',
             'admin-theme'
         );
-    }
-
-    /**
-     * Register custom Validation Rules.
-     *
-     * @return void
-     */
-    public function registerValidationRules()
-    {
-        // Validator::extend('old_password', function ($attribute, $value, $parameters, $validator) {
-
-        //     $user = DB::table('users')->where('id', current($parameters))->first();
-
-        //     if ($user === null) {
-        //         return false;
-        //     }
-
-        //     return Hash::check($value, $user->password);
-        // });
-
-        // Validator::extend('admin_theme_date', function ($attribute, $value, $parameters, $validator) {
-
-        //     return array_get(date_parse_from_format(config('admin-theme.date_formats.laravel'), $value), 'error_count') === 0;
-        // });
-
-        // Validator::extendImplicit('sometimes_or_nullable_or_required', function ($attribute, $value, $parameters, \Illuminate\Validation\Validator $validator) {
-
-        //     if (!array_has($validator->attributes(), $attribute) || is_null($value)) {
-
-        //         $validator->addRules([
-        //             $attribute => [
-        //                 'sometimes',
-        //                 'nullable'
-        //             ]
-        //         ]);
-
-        //         return true;
-        //     }
-
-        //     if (is_string($value)) {
-        //         return $value !== '';
-        //     }
-
-        //     if (is_array($value)) {
-        //         return count($value) > 0;
-        //     }
-
-        //     return false;
-        // });
     }
 }
