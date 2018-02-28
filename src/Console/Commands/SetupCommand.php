@@ -30,8 +30,11 @@ class SetupCommand extends Command
         $this->line(PHP_EOL . 'Adding AdminThemeUserTrait to User model');
         $this->call('admin-theme:add-user-trait');
 
-        $this->line(PHP_EOL . 'Publishing Permissions config file');
-        $this->call('vendor:publish', ['--provider' => 'Spatie\Permission\PermissionServiceProvider', '--tag' => 'config']);
+        $this->line(PHP_EOL . 'Publishing Permissions migrations and config file');
+        $this->call('vendor:publish', ['--provider' => 'Spatie\Permission\PermissionServiceProvider',]);
+
+        $this->line(PHP_EOL . 'Publishing Media Library migrations and config file');
+        $this->call('vendor:publish', ['--provider' => 'Spatie\MediaLibrary\MediaLibraryServiceProvider']);
 
     }
 }
