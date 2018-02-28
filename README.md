@@ -53,6 +53,9 @@ Run the setup of the admin theme.
 $ php artisan admin-theme:setup
 ```
 
+It's mandatory that you set the default filesystem in `config/filesystems.php` since for default Media Library package use the `public` filesystem of laravel. Of course you can customize that:
+[https://docs.spatie.be/laravel-medialibrary/v6/installation-setup](https://docs.spatie.be/laravel-medialibrary/v6/installation-setup)
+
 ### Database
 
 Update in the `database/seeds/DataBaseSeeder.php` file.
