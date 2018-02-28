@@ -1,0 +1,62 @@
+{
+  "name": "iVirtual-la/laravel-admin-theme",
+  "description":
+    "Material Design Admin dashboard for Laravel with out of the box Users roles management for scaffolding new projects.",
+  "type": "library",
+  "keywords": [
+    "ivirtual",
+    "material design",
+    "laravel",
+    "admin",
+    "dashboard",
+    "backend",
+    "user roles",
+    "roles"
+  ],
+  "homepage": "https://github.com/iVirtual-la/laravel-admin-theme",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "fkraefft",
+      "email": "fkraefft@ivirtual.la",
+      "role": "Developer"
+    },
+    {
+      "name": "emilianotisato",
+      "email": "emilianotisato@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "illuminate/support": "~5.5.0|~5.6.0",
+    "spatie/laravel-medialibrary": "6.6.*",
+    "spatie/laravel-permission": "2.9.*",
+    "spatie/laravel-sluggable": "2.1.*"
+  },
+  "require-dev": {
+    "orchestra/testbench": "~3.3.0|~3.4.2|^3.5.0",
+    "phpunit/phpunit": "^5.7|6.2|^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "iVirtual\\AdminTheme\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "iVirtual\\AdminTheme\\Test\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": ["iVirtual\\AdminTheme\\AdminThemeServiceProvider"]
+    }
+  }
+}
