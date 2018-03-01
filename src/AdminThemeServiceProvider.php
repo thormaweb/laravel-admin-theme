@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use iVirtual\AdminTheme\Console\Commands\SetupCommand;
-use iVirtual\AdminTheme\Console\Commands\AddAdminThemeUserTraitCommand;
+use iVirtual\AdminTheme\Console\Commands\AmendFilesCommand;
 
 class AdminThemeServiceProvider extends ServiceProvider
 {
@@ -18,7 +18,7 @@ class AdminThemeServiceProvider extends ServiceProvider
      */
     protected $commands = [
         'Setup' => 'command.admin-theme.setup',
-        'AddAdminThemeUserTrait' => 'command.admin-theme.add-user-trait'
+        'AmendFiles' => 'command.admin-theme.amend-files'
     ];
 
     /**
@@ -175,10 +175,10 @@ class AdminThemeServiceProvider extends ServiceProvider
         });
     }
 
-    protected function registerAddAdminThemeUserTraitCommand()
+    protected function registerAmendFilesCommand()
     {
-        $this->app->singleton('command.admin-theme.add-user-trait', function () {
-            return new AddAdminThemeUserTraitCommand();
+        $this->app->singleton('command.admin-theme.amend-files', function () {
+            return new AmendFilesCommand();
         });
     }
 

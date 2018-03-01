@@ -33,10 +33,9 @@ Olso the Media Library package has custom config file (optional).
 
 ## Configuration
 
-Run the setup of the admin theme.
+Run the Admin Theme setup command.
 ```shell
-// Run the iVirtual Admin Theme setup.
-$ php artisan admin-theme:setup
+php artisan admin-theme:setup
 ```
 
 Your user needs to implements `HasMediaConversions` interface:
