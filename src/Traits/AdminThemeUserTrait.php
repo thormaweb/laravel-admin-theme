@@ -2,11 +2,12 @@
 
 namespace iVirtual\AdminTheme\Traits;
 
+use Spatie\MediaLibrary\Media;
+use Spatie\Image\Manipulations;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-trait AdminThemeUserTrait implements HasMedia
+trait AdminThemeUserTrait
 {
     use HasMediaTrait, HasRoles;
 
@@ -15,8 +16,8 @@ trait AdminThemeUserTrait implements HasMedia
      */
     public function getAvatarUrlAttribute()
     {
-        if ($this->getFirstMediaUrl('avatar')) {
-            return $this->getFirstMediaUrl('avatar');
+        if ($this->getFirstMediaUrl('images')) {
+            return $this->getFirstMediaUrl('images', 'avatar');
         }
 
         return url(config('admin-theme.avatar'));
@@ -38,17 +39,15 @@ trait AdminThemeUserTrait implements HasMedia
      */
     public function getFullNameAttribute($value)
     {
-        return $this->getFullName();
-    }
-
-    /**
-     * Return the full name of the user.
-     *
-     * @return string
-     */
-    public function getFullName()
-    {
         return $this->name;
     }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('avatar')
+            ->fit(Manipulations::FIT_FILL, 512, 512)
+            ->background('ffffff');
+    }
+
 
 }

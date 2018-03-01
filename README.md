@@ -20,7 +20,7 @@ To [Propeller](https://github.com/digicorp/propeller) because we use his CSS Adm
 
 ### Install
 
-Run the following commands to install the package.
+Run composer to install the package.
 ```shell
 composer require iVirtual-la/laravel-admin-theme
 ```
@@ -30,20 +30,6 @@ composer require iVirtual-la/laravel-admin-theme
 If you want to customice the roles and permission tables, or if your User model use UUID check out the `spatie/laravel-permission` documentation [https://github.com/spatie/laravel-permission](https://github.com/spatie/laravel-permission)
 
 Olso the Media Library package has custom config file (optional).
-**Run the following commands:**
-
-```shell
-// Publish iVirtual Admin Theme Service Provider.
-$ php artisan vendor:publish --provider="iVirtual\AdminTheme\AdminThemeServiceProvider"
-```
-Possible tags for the `vendor:publish` command:
-
-- config
-- migrations
-- seeds
-- views
-- lang
-- public
 
 ## Configuration
 
@@ -51,6 +37,22 @@ Run the setup of the admin theme.
 ```shell
 // Run the iVirtual Admin Theme setup.
 $ php artisan admin-theme:setup
+```
+
+Your user needs to implements `HasMediaConversions` interface:
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+
+class User extends Authenticatable implements HasMediaConversions
+{
+    use Notifiable;
+...
 ```
 
 It's mandatory that you set the default filesystem in `config/filesystems.php` since for default Media Library package use the `public` filesystem of laravel. Of course you can customize that:
