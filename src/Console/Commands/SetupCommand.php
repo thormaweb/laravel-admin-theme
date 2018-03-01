@@ -31,7 +31,7 @@ class SetupCommand extends Command
             $this->line(PHP_EOL . 'Publishing Admin Theme assets, migrations and config files...');
             $this->call('vendor:publish', ['--provider' => 'iVirtual\AdminTheme\AdminThemeServiceProvider',]);
 
-            $admin_path = $this->ask('What will be the admin path? (e.g. if you want to acces from yoursite.com/admin input just "admin")');
+            $admin_path = $this->ask('What will be the admin path? (e.g. if you want to acces from yoursite.com/admin just input "admin")');
 
             $this->line(PHP_EOL . 'You choose: ' . $admin_path);
 
