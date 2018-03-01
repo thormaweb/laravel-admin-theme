@@ -1,6 +1,8 @@
 # [iVirtual.la](https://ivirtual.la) Laravel Admin Theme
 
-Material Design Admin dashboard with out of the box Users permissions and tons of Blade components and helpers for scaffolding new projects.
+Laravel Material Design Admin dashboard with out of the box Users permissions and tons of Blade components and helpers for scaffolding new projects.
+
+// TODO: intro video
 
 ## Thanks to:
 To [Propeller](https://github.com/digicorp/propeller) because we use his CSS Admin Theme (v1.2), and to [Spatie](https://github.com/spatie) for the amazing laravel packages (we use Permissions and Media Library)
@@ -8,56 +10,148 @@ To [Propeller](https://github.com/digicorp/propeller) because we use his CSS Adm
 ## Index
 
 * [Installation](#installation)
-    * [Install](#install)
-    * [Publish](#publish)
 * [Configuration](#configuration)
-    * [Database](#database)
-    * [Routes](#routes)
-* [Usage](#usage)
-    * [Blade](#blade)
+    * [Theme Setup](#theme-setup)
+    * [Project Setup](#project-setup)
+* [Daily Usage](#daily-usage)
+    * [Blade Components](#blade-components)
 
 ## Installation
 
-### Install
+Installing iVirtual Admin Theme is easy if you install this package from zero (if you are in a fresh new Laravel installation). If you are will to use this powerfull package in an existing project, it's not that hard to implement but you have to skyp this automatic installation proces because is only usefull in new projects. Go to the [manual installation section](#manual-installation) for the exact steps.
 
-Run composer to install the package.
+### Get the package trougth composer
+
+Run composer this composer command in you shell.
+```shell
+composer require iVirtual-la/laravel-admin-theme
+```
+
+Run the Admin Theme setup command and follow the instructions.
+```shell
+php artisan admin-theme:setup
+```
+
+## Configuration
+
+It's mandatory that you set the default filesystem in `config/filesystems.php` since for default Media Library package use the `public` filesystem of laravel. Of course you can customize that:
+[https://docs.spatie.be/laravel-medialibrary/v6/installation-setup](https://docs.spatie.be/laravel-medialibrary/v6/installation-setup)
+
+If you are not sure, refere to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk) 
+
+### Theme Setuo
+
+### Project Setup
+
+## Daily Usage
+
+### Blade Components
+
+#### Master View
+After publishing the views it would be a `/resources/views/layouts/admin_theme.blade.php` file.
+That file is the master you should extend your views from.
+
+**/resources/views/layouts/admin_theme.blade.php file:**
+```php
+@extends('admin-theme::layouts.admin')
+
+@adminThemeMenu
+
+    // The menu goes here.
+
+    @include('admin-theme::user.menu')
+
+    // Or here
+
+@endAdminThemeMenu
+
+@adminThemeContent
+
+    // Any content that must be always render.
+
+    // The content of the pages.
+    @yield('content')
+
+@endAdminThemeContent
+
+```
+#### Blade Components
+
+**TODO**
+
+#### User password forget function
+We use the default laravel sent forget link, but with custome views.
+The only thing you need to do is override one named router to redirect our controller.
+```
+// Override password reset
+Route::get(config('admin-theme.path.panel') . config('admin-theme.path.password_reset'), function () {
+   return redirect()->route('ivi_admin_theme_password_reset', ['token' => array_keys(request()->query())[0]]);
+})->name('password.reset');
+```
+
+Then if you don't like laravel default email check the customization page here:
+https://laravel.com/docs/5.5/passwords#password-customization
+
+---
+
+## Manual Installation
+
+### First require the package
+
+Run composer this composer command in you shell.
 ```shell
 composer require iVirtual-la/laravel-admin-theme
 ```
 
 ### Publish
 
-If you want to customice the roles and permission tables, or if your User model use UUID check out the `spatie/laravel-permission` documentation [https://github.com/spatie/laravel-permission](https://github.com/spatie/laravel-permission)
+Now you first need to publish the package files, this include the config file, the public files for the theme a Seeder and some views
 
-Olso the Media Library package has custom config file (optional).
-
-## Configuration
-
-Run the Admin Theme setup command.
 ```shell
-php artisan admin-theme:setup
+$ php artisan vendor:publish --provider="Virtual\AdminTheme\AdminThemeServiceProvider"
 ```
 
-Your user needs to implements `HasMediaConversions` interface:
+We use `spatie/laravel-permissions` package so you need to get the migrations table and the config file.
+
+```shell
+$ php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+```
+
+If you want to customice the roles and permission tables, or if your User model use UUID check out the `spatie/laravel-permission` documentation [https://github.com/spatie/laravel-permission](https://github.com/spatie/laravel-permission)
+
+We olso use the `spatie/laravel-medialibrary`. Again, you need the migrations table and config file.
+
+```shell
+$ php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider"
+```
+
+### Tweak some files
+
+#### User model
+
+Your User model needs to implements `HasMediaConversions` interface and use `AdminThemeUserTrait` trait:
 ```php
 <?php
 
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use iVirtual\AdminTheme\Traits\AdminThemeUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
 class User extends Authenticatable implements HasMediaConversions
 {
-    use Notifiable;
+    use Notifiable, AdminThemeUserTrait;
 ...
 ```
 
 It's mandatory that you set the default filesystem in `config/filesystems.php` since for default Media Library package use the `public` filesystem of laravel. Of course you can customize that:
 [https://docs.spatie.be/laravel-medialibrary/v6/installation-setup](https://docs.spatie.be/laravel-medialibrary/v6/installation-setup)
 
-### Database
+If you are not sure, refere to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk) 
+
+#### Database seeder
 
 Update in the `database/seeds/DataBaseSeeder.php` file.
 
@@ -83,7 +177,7 @@ $ php artisan db:seed --class=AdminThemeSeeder
 
 ```
 
-### Routes
+#### AppServiceProvider (instal admin theme Routes)
 
 The routes are not loaded by default.
 
@@ -132,6 +226,8 @@ AdminTheme::routes(function($router) {
 });
 ```
 
+#### Auth files to proper redirect
+
 In the `app/Controllers/Auth/LoginController.php` file,
 the `app/Controllers/Auth/RegisterController.php` file and
 the `app/Controllers/Auth/ResetPasswordController.php` file update the redirect path:
@@ -156,51 +252,3 @@ public function handle($request, Closure $next, $guard = null)
     }
 ```
 
-## Usage
-
-### Blade
-
-#### Master View
-After publishing the views it would be a `/resources/views/layouts/admin_theme.blade.php` file.
-That file is the master you should extend your views from.
-
-**/resources/views/layouts/admin_theme.blade.php file:**
-```php
-@extends('admin-theme::layouts.admin')
-
-@adminThemeMenu
-
-    // The menu goes here.
-
-    @include('admin-theme::user.menu')
-
-    // Or here
-
-@endAdminThemeMenu
-
-@adminThemeContent
-
-    // Any content that must be always render.
-
-    // The content of the pages.
-    @yield('content')
-
-@endAdminThemeContent
-
-```
-#### Blade Components
-
-**TODO**
-
-#### User password forget function
-We use the default laravel sent forget link, but with custome views.
-The only thing you need to do is override one named router to redirect our controller.
-```
-// Override password reset
-Route::get(config('admin-theme.path.panel') . config('admin-theme.path.password_reset'), function () {
-   return redirect()->route('ivi_admin_theme_password_reset', ['token' => array_keys(request()->query())[0]]);
-})->name('password.reset');
-```
-
-Then if you don't like laravel default email check the customization page here:
-https://laravel.com/docs/5.5/passwords#password-customization
