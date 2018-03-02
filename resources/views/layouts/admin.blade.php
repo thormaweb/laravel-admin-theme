@@ -89,16 +89,14 @@
 
                 <li>
 
-                    <span class="pmd-card-subtitle-text">iVirtual © <span
-                                class="auto-update-year">{{ date('Y') }}</span>. Todos los derechos reservados.</span>
+                    <span class="pmd-card-subtitle-text">{{ config('app.name') }} © <span
+                                class="auto-update-year">{{ date('Y') }}</span>. All rights reserved.</span>
 
-                    <h3 class="pmd-card-subtitle-text">Licensed under <a href="https://opensource.org/licenses/MIT"
-                                                                         target="_blank">MIT license.</a></h3>
                 </li>
 
                 <li class="pull-right for-support">
 
-                    <a href="mailto:atencion@ivirtual.la">
+                    <a >
 
                         <div>
                             <svg x="0px" y="0px" width="38px" height="38px" viewBox="0 0 38 38"
@@ -124,9 +122,9 @@
 
                         <div>
 
-                            <span class="pmd-card-subtitle-text">Para Soporte</span>
+                            <span class="pmd-card-subtitle-text">{{ __('admin-theme:general.support') }}  |  {{ config('admin-theme.phone') }}</span>
 
-                            <h3 class="pmd-card-title-text">atencion@ivirtual.la</h3>
+                            <h3 class="pmd-card-title-text">{{ config('admin-theme.email') }}</h3>
 
                         </div>
 

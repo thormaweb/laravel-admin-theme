@@ -7,5 +7,7 @@ return [
     'save' => 'Save',
     'cancel' => 'Cancel',
     'yes' => 'Yes',
-    'no' => 'No',
+	'no' => 'No',
+
+	'support' => 'Support',
 ];

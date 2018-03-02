@@ -12,7 +12,7 @@ return [
     */
     'path' => [
 
-        'panel' => 'admin',
+        'panel' => 'admin', // This is your main admin dashboard URI
 
         'login' => 'login',
         'logout' => 'logout',
@@ -21,8 +21,7 @@ return [
         'password_reset' => 'password/reset',
         'password_email' => 'password/email',
 
-        'user' => 'users',
-
+        'user' => 'users', // This is base URI in dashboard for manage the users CRUD
         'create' => 'create',
         'view' => 'view',
         'update' => 'update',
@@ -46,19 +45,19 @@ return [
     |--------------------------------------------------------------------------
     |
     | Set here the path to your client/project logo file
-    | The logo file should have a size of ?? x ??
+    | The logo file should have a size of 512px x 512px
     */
-    'logo' => 'vendor/ivirtual/admin-theme/images/logo.png',
+    'logo' => '/vendor/ivirtual/admin-theme/images/logo.png',
 
     /*
     |--------------------------------------------------------------------------
     | User Default Avatar Path
     |--------------------------------------------------------------------------
     |
-    | Set here the path to your client/project logo file
-    | The logo file should have a size of 250 x 250
+    | Set here the path for the default avatar file, before the user choose his own
+    | The file should have a size of 250 x 250
     */
-    'avatar' => 'vendor/ivirtual/admin-theme/images/avatar.png',
+    'avatar' => '/vendor/ivirtual/admin-theme/images/avatar.png',
 
     'date_formats' => [
 
@@ -77,7 +76,7 @@ return [
     | Default Color's
     |--------------------------------------------------------------------------
     |
-    | Set here the colors
+    | Here you can override the default colors for the Admin Theme
     */
 
     'colors' => [
@@ -92,5 +91,16 @@ return [
 
         'shadow' => ''
 
-    ]
+	],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Extras
+    |--------------------------------------------------------------------------
+    |
+    | Other configurations
+	*/
+
+	'phone' => '4545-4545', // Phone and email in the footer of the dashboard
+	'email' => 'your@app.com',
 ];

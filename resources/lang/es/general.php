@@ -8,4 +8,6 @@ return [
     'cancel' => 'Cancelar',
     'yes' => 'Si',
     'no' => 'No',
+	
+	'support' => 'Soporte',
 ];

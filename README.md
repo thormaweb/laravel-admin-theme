@@ -18,11 +18,11 @@ To [Propeller](https://github.com/digicorp/propeller) because we use his CSS Adm
 
 ## Installation
 
-Installing iVirtual Admin Theme is easy if you install this package from zero (if you are in a fresh new Laravel installation). If you are will to use this powerfull package in an existing project, it's not that hard to implement but you have to skyp this automatic installation proces because is only usefull in new projects. Go to the [manual installation section](#manual-installation) for the exact steps.
+Installing iVirtual Admin Theme is easy if you install this package from zero (if you are in a fresh new Laravel installation). If you are willing to use this powerfull package in an existing project, it's not that hard to implement but you have to skyp this automatic installation proces because is only usefull in a new projects. Go to the [manual installation section](#manual-installation) for the exact steps.
 
 ### Get the package trougth composer
 
-Run composer this composer command in you shell.
+Run this composer command in you shell.
 ```shell
 composer require iVirtual-la/laravel-admin-theme
 ```
@@ -34,12 +34,12 @@ php artisan admin-theme:setup
 
 ## Configuration
 
-It's mandatory that you set the default filesystem in `config/filesystems.php` since for default Media Library package use the `public` filesystem of laravel. Of course you can customize that:
+It's mandatory that you set the default filesystem in `config/filesystems.php` since Media Library package use the default Public Disk in laravel filesystem config. Of course you can customize that:
 [https://docs.spatie.be/laravel-medialibrary/v6/installation-setup](https://docs.spatie.be/laravel-medialibrary/v6/installation-setup)
 
-If you are not sure, refere to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk) 
+If you are not sure on how to config this, refer to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk) 
 
-### Theme Setuo
+### Theme Setup
 
 ### Project Setup
 
@@ -78,19 +78,6 @@ That file is the master you should extend your views from.
 #### Blade Components
 
 **TODO**
-
-#### User password forget function
-We use the default laravel sent forget link, but with custome views.
-The only thing you need to do is override one named router to redirect our controller.
-```
-// Override password reset
-Route::get(config('admin-theme.path.panel') . config('admin-theme.path.password_reset'), function () {
-   return redirect()->route('ivi_admin_theme_password_reset', ['token' => array_keys(request()->query())[0]]);
-})->name('password.reset');
-```
-
-Then if you don't like laravel default email check the customization page here:
-https://laravel.com/docs/5.5/passwords#password-customization
 
 ---
 
@@ -146,10 +133,10 @@ class User extends Authenticatable implements HasMediaConversions
 ...
 ```
 
-It's mandatory that you set the default filesystem in `config/filesystems.php` since for default Media Library package use the `public` filesystem of laravel. Of course you can customize that:
+It's mandatory that you set the default filesystem in `config/filesystems.php` since Media Library package use the default Public Disk in laravel filesystem config. Of course you can customize that:
 [https://docs.spatie.be/laravel-medialibrary/v6/installation-setup](https://docs.spatie.be/laravel-medialibrary/v6/installation-setup)
 
-If you are not sure, refere to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk) 
+If you are not sure on how to config this, refer to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk) 
 
 #### Database seeder
 
@@ -215,14 +202,15 @@ AdminTheme::routes(function($router) {
     // Load all the routes. By default the router call this method.
     $router->all();
 
-    // Load the login view route.
-    $this->forLogin();
+	// Load the dashboard routes.
+	$this->adminRoutes();
 
-    // Load the login & logout functions routes.
-    $this->forAuth();
+    // Load the authentication views.
+    $this->authRoutes();
 
-    // Load the dashboard routes.
-    $this->forAdmin();
+    // Load the routes for manage users CRUD and role asigment
+    $this->usersRoutes();
+
 });
 ```
 

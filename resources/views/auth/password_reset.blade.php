@@ -10,7 +10,7 @@
                     <input type="hidden" name="token" value="{{ request()->query('token') }}">
                     <div class="pmd-card-title card-header-border text-center">
                         <div class="loginlogo">
-                            <a href="/"><img width="50%" src="/{{ config('admin-theme.logo') }}" alt="{{config('app.name')}}"></a>
+                            <a href="/"><img width="50%" src="{{ config('admin-theme.logo') }}" alt="{{config('app.name')}}"></a>
                         </div>
                         <h3>{{__('admin-theme::auth.reset_your_password')}}</h3>
                         <p>{{ __('admin-theme::auth.reset_process2') }}</p>

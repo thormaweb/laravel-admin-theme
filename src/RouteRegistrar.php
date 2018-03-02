@@ -32,79 +32,26 @@ class RouteRegistrar
     public function all()
     {
 
-        $this->forLogin();
+        $this->adminRoutes();
 
-        $this->forAuth();
+        $this->authRoutes();
 
-        $this->forAdmin();
-
-        $this->forUsers();
+        $this->usersRoutes();
 
     }
 
     /**
-     * Register the routes needed for the Categories.
+     * Register the routes needed for authentication.
      *
      * @return void
      */
-    public function forLogin()
+    public function authRoutes()
     {
 
+		// Hit laravel auth controllers
         $this->router->group([
 
-            'middleware' => [
-
-                'web',
-
-                'guest'
-
-            ],
-
-            'namespace' => '\iVirtual\AdminTheme\Http\Controllers'
-
-        ], function ($router) {
-
-            $router->get(config('admin-theme.path.login'), [
-                'uses' => 'AdminController@login',
-            ])
-                ->name('login');
-
-            $router->get(config('admin-theme.path.login'), [
-                'uses' => 'AdminController@login',
-            ])
-                ->name('login');
-
-
-            $router->get(config('admin-theme.path.password_email'), [
-                'uses' => 'AdminController@passwordEmail'
-            ])
-                ->name('ivi_admin_theme_password_email');
-
-            $router->post(config('admin-theme.path.password_email'), [
-                'uses' => '\App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail'
-            ]);
-
-            $router->get(config('admin-theme.path.password_reset'), [
-                'uses' => 'AdminController@passwordReset'
-            ])
-                ->name('ivi_admin_theme_password_reset');
-
-            $router->post(config('admin-theme.path.password_reset'), [
-                'uses' => '\App\Http\Controllers\Auth\ResetPasswordController@reset'
-            ]);
-
-        });
-    }
-
-    /**
-     * Register the routes needed for the Posts.
-     *
-     * @return void
-     */
-    public function forAuth()
-    {
-
-        $this->router->group([
+			'prefix' => config('admin-theme.path.panel'),
 
             'namespace' => 'App\Http\Controllers\Auth',
 
@@ -127,15 +74,70 @@ class RouteRegistrar
             ])
                 ->middleware('guest');
 
+            $router->post(config('admin-theme.path.password_reset'), [
+                'uses' => 'ResetPasswordController@reset'
+			])
+				->middleware('guest');
+
+            $router->post(config('admin-theme.path.password_email'), [
+                'uses' => '\App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail'
+			])
+				->middleware('guest');
+
+		});
+
+		// Hit our custom controllers
+        $this->router->group([
+
+			'prefix' => config('admin-theme.path.panel'),
+
+            'middleware' => [
+
+                'web',
+
+                'guest'
+
+            ],
+
+            'namespace' => '\iVirtual\AdminTheme\Http\Controllers'
+
+        ], function ($router) {
+
+            $router->get(config('admin-theme.path.login'), [
+                'uses' => 'AdminController@login',
+            ])
+                ->name('login');
+
+
+            $router->get(config('admin-theme.path.password_email'), [
+                'uses' => 'AdminController@passwordEmail'
+            ])
+                ->name('ivi_admin_theme_password_email');
+
+            $router->get(config('admin-theme.path.password_reset'), [
+                'uses' => 'AdminController@passwordReset'
+            ])
+                ->name('ivi_admin_theme_password_reset');
+
         });
     }
 
     /**
-     * Register the routes needed for the Tags.
+     * Register the routes needed for the Posts.
      *
      * @return void
      */
-    public function forAdmin()
+    public function forAuth()
+    {
+
+    }
+
+    /**
+     * Register the routes needed for basic dashboard
+     *
+     * @return void
+     */
+    public function adminRoutes()
     {
 
         $this->router->group([
@@ -173,7 +175,7 @@ class RouteRegistrar
         });
     }
 
-    public function forUsers()
+    public function usersRoutes()
     {
 
         $this->router->group([
