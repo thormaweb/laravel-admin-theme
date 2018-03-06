@@ -5,7 +5,7 @@ namespace iVirtual\AdminTheme;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
-use iVirtual\AdminTheme\Console\Commands\SetupCommand;
+use iVirtual\AdminTheme\Console\Commands\InstallCommand;
 use iVirtual\AdminTheme\Console\Commands\AmendFilesCommand;
 
 class AdminThemeServiceProvider extends ServiceProvider
@@ -17,7 +17,7 @@ class AdminThemeServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        'Setup' => 'command.admin-theme.setup',
+        'Install' => 'command.admin-theme.install',
         'AmendFiles' => 'command.admin-theme.amend-files'
     ];
 
@@ -168,10 +168,10 @@ class AdminThemeServiceProvider extends ServiceProvider
         $this->commands(array_values($this->commands));
     }
 
-    protected function registerSetupCommand()
+    protected function registerInstallCommand()
     {
-        $this->app->singleton('command.admin-theme.setup', function () {
-            return new SetupCommand();
+        $this->app->singleton('command.admin-theme.install', function () {
+            return new InstallCommand();
         });
     }
 

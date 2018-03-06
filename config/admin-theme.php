@@ -12,7 +12,7 @@ return [
     */
     'path' => [
 
-        'panel' => 'admin', // This is your main admin dashboard URI
+        'panel' => 'your-admin-path', // This is your main admin dashboard URI
 
         'login' => 'login',
         'logout' => 'logout',
