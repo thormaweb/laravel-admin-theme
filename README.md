@@ -24,7 +24,7 @@ Installing iVirtual Admin Theme is easy if you install this package from zero (i
 
 Run this composer command in you shell.
 ```shell
-composer require iVirtual-la/laravel-admin-theme
+composer require ivirtual-la/laravel-admin-theme
 ```
 
 Run the Admin Theme setup command and follow the instructions.
@@ -37,7 +37,7 @@ php artisan admin-theme:setup
 It's mandatory that you set the default filesystem in `config/filesystems.php` since Media Library package use the default Public Disk in laravel filesystem config. Of course you can customize that:
 [https://docs.spatie.be/laravel-medialibrary/v6/installation-setup](https://docs.spatie.be/laravel-medialibrary/v6/installation-setup)
 
-If you are not sure on how to config this, refer to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk) 
+If you are not sure on how to config this, refer to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk)
 
 ### Theme Setup
 
@@ -87,7 +87,7 @@ That file is the master you should extend your views from.
 
 Run composer this composer command in you shell.
 ```shell
-composer require iVirtual-la/laravel-admin-theme
+composer require ivirtual-la/laravel-admin-theme
 ```
 
 ### Publish
@@ -95,7 +95,7 @@ composer require iVirtual-la/laravel-admin-theme
 Now you first need to publish the package files, this include the config file, the public files for the theme a Seeder and some views
 
 ```shell
-$ php artisan vendor:publish --provider="Virtual\AdminTheme\AdminThemeServiceProvider"
+$ php artisan vendor:publish --provider="iVirtual\AdminTheme\AdminThemeServiceProvider"
 ```
 
 We use `spatie/laravel-permissions` package so you need to get the migrations table and the config file.
@@ -136,7 +136,7 @@ class User extends Authenticatable implements HasMediaConversions
 It's mandatory that you set the default filesystem in `config/filesystems.php` since Media Library package use the default Public Disk in laravel filesystem config. Of course you can customize that:
 [https://docs.spatie.be/laravel-medialibrary/v6/installation-setup](https://docs.spatie.be/laravel-medialibrary/v6/installation-setup)
 
-If you are not sure on how to config this, refer to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk) 
+If you are not sure on how to config this, refer to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk)
 
 #### Database seeder
 
@@ -239,4 +239,3 @@ public function handle($request, Closure $next, $guard = null)
         return $next($request);
     }
 ```
-
