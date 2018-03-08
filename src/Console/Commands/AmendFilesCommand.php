@@ -3,6 +3,7 @@
 namespace iVirtual\AdminTheme\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Composer;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\Finder\Finder;
 use Illuminate\Filesystem\Filesystem;
@@ -21,7 +22,26 @@ class AmendFilesCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Amend Laravel core files to work with Admin Theme';
+	protected $description = 'Amend Laravel core files to work with Admin Theme';
+
+	/**
+	 * The Composer instance.
+	 *
+	 * @var \Illuminate\Support\Composer
+	 */
+	protected $composer;
+	
+	/**
+	 * Amend laravel files
+	 *
+	 * @param  \Illuminate\Support\Composer  $composer
+	 * @return void
+	 */
+	public function __construct(Composer $composer)
+	{
+		parent::__construct();
+		$this->composer = $composer;
+	}
 
     /**
      * Execute the console command.
@@ -69,6 +89,7 @@ class AmendFilesCommand extends Command
         $config = str_replace('your-admin-path', $admin_path, $config);
         File::put(config_path('admin-theme.php'), $config);
 
-        $this->info("App files were updated succsesfully!");
+		$this->composer->dumpAutoloads();
+        $this->info("App files were updated succsesfully!" . PHP_EOL);
     }
 }

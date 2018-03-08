@@ -2,7 +2,9 @@
 
 namespace iVirtual\AdminTheme;
 
+use Illuminate\Support\Composer;
 use Illuminate\Support\Facades\View;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use iVirtual\AdminTheme\Console\Commands\InstallCommand;
@@ -178,7 +180,9 @@ class AdminThemeServiceProvider extends ServiceProvider
     protected function registerAmendFilesCommand()
     {
         $this->app->singleton('command.admin-theme.amend-files', function () {
-            return new AmendFilesCommand();
+			$files = new Filesystem();
+			$composer = new Composer($files);
+			return new AmendFilesCommand($composer);
         });
     }
 

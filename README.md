@@ -27,9 +27,9 @@ Run this composer command in you shell.
 composer require ivirtual-la/laravel-admin-theme
 ```
 
-Run the Admin Theme setup command and follow the instructions.
+Run the Admin Theme install command and follow the instructions.
 ```shell
-php artisan admin-theme:setup
+php artisan admin-theme:install
 ```
 
 ## Configuration

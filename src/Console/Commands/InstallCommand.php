@@ -132,7 +132,7 @@ class InstallCommand extends Command
             }
             config(["database.connections.mysql.{$configKey}" => $value]);
         }
-        $this->call('migrate');
+        $this->call('migrate:fresh --seed');
     }
     /**
      * Prompt the user for optional input but hide the answer from the console.
