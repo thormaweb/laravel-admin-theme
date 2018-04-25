@@ -3,10 +3,10 @@
 namespace iVirtual\AdminTheme\Http\Controllers;
 
 use App\User;
-use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
-use iVirtual\AdminTheme\Http\Requests\ProfileRequest;
 use iVirtual\AdminTheme\Http\Requests\UserRequest;
+use Illuminate\Routing\Controller as BaseController;
+use iVirtual\AdminTheme\Http\Requests\ProfileRequest;
 
 class UserController extends BaseController
 {

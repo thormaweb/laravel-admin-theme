@@ -188,7 +188,7 @@ class RouteRegistrar
 
                 'auth',
 
-                'permission:users-*'
+                'permission:users-create'
 
             ],
 
