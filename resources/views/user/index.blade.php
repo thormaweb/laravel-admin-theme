@@ -82,6 +82,8 @@
 
         @endAdminTheme
 
+        <div style="float: right">{{ $users->links() }}</div>
+
     @endAdminTheme
 
 @endsection

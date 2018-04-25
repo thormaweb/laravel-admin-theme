@@ -1,3 +1,5 @@
+# ATENTION! This is a work in progress, do not use it on a production project yeat. Estimated alfa release is in june 2018
+
 # [iVirtual.la](https://ivirtual.la) Laravel Admin Theme
 
 Laravel Material Design Admin dashboard with out of the box Users permissions and tons of Blade components and helpers for scaffolding new projects.
@@ -164,7 +166,7 @@ $ php artisan db:seed --class=AdminThemeSeeder
 
 ```
 
-#### AppServiceProvider (instal admin theme Routes)
+#### AppServiceProvider (install admin theme Routes)
 
 The routes are not loaded by default.
 
