@@ -46,8 +46,6 @@
     <link rel="stylesheet" type="text/css"
           href="{{ asset('vendor/ivirtual/admin-theme/css/pmd-select2.css') }}">
 
-    @stack('css')
-
     <!-- Theme Color's -->
     <style>
         .navbar-inverse,
@@ -80,6 +78,7 @@
         }
     </style>
 
+    @stack('css')
 </head>
 
 <body class="body-custom">
@@ -130,8 +129,6 @@
     @stack('scripts')
 
     <!-- Scripts Ends -->
-
-
 
 </body>
 </html>

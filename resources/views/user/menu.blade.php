@@ -1,5 +1,5 @@
 
-@can('users-*')
+@can('users-create')
 
     @adminTheme('menu_item', ['separator' => true])
 

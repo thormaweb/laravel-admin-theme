@@ -13,7 +13,7 @@
             @adminThemeSelect([
                 'name' => 'role_ids',
                 'label' => __('admin-theme::user.roles'),
-                'options' => \iVirtual\AdminTheme\AdminTheme::generateSelectOptions(\App\Role::all(), 'id', 'display_name'),
+                'options' => \AdminTheme::generateSelectOptions(\App\Role::all(), 'id', 'display_name'),
                 'multiple' => true
             ])
 

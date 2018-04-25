@@ -122,7 +122,7 @@
 
                         <div>
 
-                            <span class="pmd-card-subtitle-text">{{ __('admin-theme:general.support') }}  |  {{ config('admin-theme.phone') }}</span>
+                            <span class="pmd-card-subtitle-text">{{ __('admin-theme::general.support') }}  |  {{ config('admin-theme.phone') }}</span>
 
                             <h3 class="pmd-card-title-text">{{ config('admin-theme.email') }}</h3>
 

@@ -1,13 +1,12 @@
 @extends('admin-theme::layouts.admin')
 
-@adminThemeMenu
+@section('admin-theme-section-menu')
 
     @include('admin-theme::user.menu')
 
-@endAdminThemeMenu
+@endsection
 
-@adminThemeContent
-
+@section('admin-theme-section-content')
     @yield('content')
 
-@endAdminThemeContent
+@endsection

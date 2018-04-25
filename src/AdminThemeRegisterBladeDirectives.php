@@ -47,7 +47,7 @@ class AdminThemeRegisterBladeDirectives
         });
 
         /**
-         * Form Input types.
+         * Form helpers.
          */
 
         Blade::directive('adminThemeInput', function($expression) {
