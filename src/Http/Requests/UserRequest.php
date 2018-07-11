@@ -32,7 +32,7 @@ class UserRequest extends FormRequest
                     'name' => 'required|string|max:255',
                     'email' => 'required|email|max:255|unique:users,email',
                     'role_ids' => 'required|array',
-                    'role_ids.*' => 'required|exists:' . config('laratrust.tables.roles') . ',id'
+                    'role_ids.*' => 'required|exists:' . config('permission.table_names.roles') . ',id'
                 ];
             case 'PATCH':
 
@@ -40,7 +40,7 @@ class UserRequest extends FormRequest
                     'name' => 'sometimes|required|string|max:255',
                     'email' => 'required|email|max:255|unique:users,email,' . $this->id,
                     'role_ids' => 'required|array',
-                    'role_ids.*' => 'required|exists:' . config('laratrust.tables.roles') . ',id'
+                    'role_ids.*' => 'required|exists:' . config('permission.table_names.roles') . ',id'
                 ];
             default:
 

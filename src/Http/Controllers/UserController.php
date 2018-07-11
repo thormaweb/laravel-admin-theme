@@ -3,6 +3,8 @@
 namespace iVirtual\AdminTheme\Http\Controllers;
 
 use App\User;
+use Spatie\Permission\Models\Role;
+use iVirtual\AdminTheme\AdminTheme;
 use Illuminate\Support\Facades\Auth;
 use iVirtual\AdminTheme\Http\Requests\UserRequest;
 use Illuminate\Routing\Controller as BaseController;
@@ -17,7 +19,8 @@ class UserController extends BaseController
 
     public function create()
     {
-        return view('admin-theme::user.create');
+        return view('admin-theme::user.create')
+               ->with('roles', AdminTheme::generateSelectOptions(Role::all(), 'id', 'name'));
     }
 
     public function store(UserRequest $request)
@@ -33,7 +36,8 @@ class UserController extends BaseController
     public function edit($id)
     {
         return view('admin-theme::user.edit')
-            ->with('user', User::findOrFail($id));
+            ->with('user', User::findOrFail($id))
+            ->with('roles', AdminTheme::generateSelectOptions(Role::all(), 'id', 'name'));
     }
 
     public function update(UserRequest $request, $id)

@@ -13,7 +13,7 @@
             @adminThemeSelect([
                 'name' => 'role_ids',
                 'label' => __('admin-theme::user.roles'),
-                'options' => \AdminTheme::generateSelectOptions(\App\Role::all(), 'id', 'display_name'),
+                'options' => $roles,
                 'multiple' => true,
                 'model' => $user
             ])
