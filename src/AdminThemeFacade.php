@@ -1,6 +1,6 @@
 <?php
 
-namespace iVirtual\AdminTheme\Facades;
+namespace iVirtual\AdminTheme;
 
 use Illuminate\Support\Facades\Facade;
 

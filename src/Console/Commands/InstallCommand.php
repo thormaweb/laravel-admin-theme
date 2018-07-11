@@ -60,7 +60,11 @@ class InstallCommand extends Command
                 $this->updateEnvironmentFile($credentials);
 
                 $this->migrateDatabaseWithFreshCredentials($credentials);
-                $this->line('~ Database successfully migrated.');
+                $this->info('~ Database successfully migrated.');
+                $this->info('~ Now please dump the composer autoload so the class AdminThemeSeeder can be found:');
+                $this->line('composer dump-autoload');
+                $this->info('~ Finally fill in your admin user credentials in that class at databse/AdminThemeSeeder.php, and run:');
+                $this->line('php artisan db:seed');
             }
 
             $this->call('cache:clear');
@@ -132,7 +136,7 @@ class InstallCommand extends Command
             }
             config(["database.connections.mysql.{$configKey}" => $value]);
         }
-        $this->call('migrate:fresh --seed');
+        $this->call('migrate:fresh');
     }
     /**
      * Prompt the user for optional input but hide the answer from the console.
