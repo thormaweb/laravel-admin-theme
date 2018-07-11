@@ -8,6 +8,6 @@ return [
     'change_password' => 'Cambiar contraseña',
     'old_password' => 'Antigua contraseña',
     'new_password' => 'Nueva contraseña',
-    'new_password_confirmation' => 'Confirmar nueva contraseña'
-
+    'new_password_confirmation' => 'Confirmar nueva contraseña',
+    'incorrect_password' => 'Incorrect password'
 ];
