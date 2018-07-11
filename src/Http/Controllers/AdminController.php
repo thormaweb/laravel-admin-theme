@@ -55,7 +55,7 @@ class AdminController extends BaseController
 
         if ($request->file('avatar')) {
 
-            $user->createImage($request->files->get('avatar'), true, null, 250, 250);
+            $user->addMedia($request->files->get('avatar'))->toMediaCollection('avatar');
         }
 
         return redirect()->route('profile');

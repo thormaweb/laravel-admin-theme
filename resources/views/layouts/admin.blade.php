@@ -36,7 +36,7 @@
 
 
                     <div class="media-left">
-                        <img src="{{ $user->avatar_url }}" alt="{{ $user->full_name }}" width="40" height="40">
+                        <img style="border-radius: 20px;" src="{{ $user->avatar_url }}" alt="{{ $user->full_name }}" width="40" height="40">
                     </div>
 
                     <div class="media-body media-middle">{{ $user->full_name }}</div>

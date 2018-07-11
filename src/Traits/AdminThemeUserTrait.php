@@ -16,8 +16,8 @@ trait AdminThemeUserTrait
      */
     public function getAvatarUrlAttribute()
     {
-        if ($this->getFirstMediaUrl('images')) {
-            return $this->getFirstMediaUrl('images', 'avatar');
+        if ($this->getFirstMediaUrl('avatar')) {
+            return $this->getFirstMediaUrl('avatar', 'avatar');
         }
 
         return url(config('admin-theme.avatar'));
