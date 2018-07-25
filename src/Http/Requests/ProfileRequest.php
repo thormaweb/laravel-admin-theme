@@ -36,7 +36,7 @@ class ProfileRequest extends FormRequest
 
                 $passwordValidation = [];
 
-                if ($this->has('old_password') || $this->has('new_password') || $this->has('new_password_confirmation')) {
+                if ($this->__isset('old_password') || $this->__isset('new_password') || $this->__isset('new_password_confirmation')) {
 
                     $passwordValidation = [
                         'old_password' => 'required_with:new_password,new_password_confirmation|string|between:6,60|old_password:' . Auth::user()->id,

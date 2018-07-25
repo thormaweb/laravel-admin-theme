@@ -39,7 +39,7 @@ class AdminController extends BaseController
     {
         $data = $request->all();
 
-        if ($request->has('new_password')) {
+        if ($request->__isset('new_password')) {
 
             $data = array_add($data, 'password', bcrypt($request->get('new_password')));
         }
