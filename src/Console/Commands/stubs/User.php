@@ -2,12 +2,12 @@
 
 namespace App;
 
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Illuminate\Notifications\Notifiable;
 use iVirtual\AdminTheme\Traits\AdminThemeUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class User extends Authenticatable implements HasMediaConversions
+class User extends Authenticatable implements HasMedia
 {
     use Notifiable, AdminThemeUserTrait;
 
