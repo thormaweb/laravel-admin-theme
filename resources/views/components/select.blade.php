@@ -6,9 +6,9 @@
 
 <div class="form-group pmd-textfield {{ $errors->has($name) ? ' has-error' : '' }}">
 
-    <label>{{$label or ''}}</label>
+    <label>{{isset($label) ? $label : ''}}</label>
 
-    <select class="form-control {{ $multiple ? 'select-tags pmd-select2-tags' : 'select-simple pmd-select2' }}" name="{{$name . ($multiple ? '[]': '') }}" {{ isset($readonly) ? !$readonly ?: 'disabled' : '' }} {{ $multiple ? 'multiple' : '' }} data-placeholder="{{ $placeholder or '' }}" style="width: 100%;">
+    <select class="form-control {{ $multiple ? 'select-tags pmd-select2-tags' : 'select-simple pmd-select2' }}" name="{{$name . ($multiple ? '[]': '') }}" {{ isset($readonly) ? !$readonly ?: 'disabled' : '' }} {{ $multiple ? 'multiple' : '' }} data-placeholder="{{ isset($placeholder) ? $placeholder : '' }}" style="width: 100%;">
 
         <option></option>
 

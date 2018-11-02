@@ -6,7 +6,7 @@
 
             <tr>
 
-                {{ $head or '' }}
+                {{ isset($head) ? $head : '' }}
 
                 @if(isset($actions))
 

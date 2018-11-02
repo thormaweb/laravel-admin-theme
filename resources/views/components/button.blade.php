@@ -1,9 +1,9 @@
 @if(isset($url))
-    <a id="{{ $id or '' }}" href="{{ url($url) }}">
+    <a id="{{ isset($id) ? $id : '' }}" href="{{ url($url) }}">
 @endif
 
-        <button id="{{ $id or '' }}"
-                class="btn pmd-btn-{{ $style or 'raised' }} pmd-ripple-effect btn-{{ $type or 'default' }} btn-{{ $size or 'md' }}"
+        <button id="{{ isset($id) ? $id : '' }}"
+                class="btn pmd-btn-{{ isset($style) ? $style : 'raised' }} pmd-ripple-effect btn-{{ isset($type) ? $type : 'default' }} btn-{{ isset($size) ? $size : 'md' }}"
             @if(isset($hover))
 
                 @if(is_array($hover))
@@ -20,7 +20,7 @@
                 <i class="material-icons pmd-sm">{{ $icon }}</i>
             @endif
 
-            {{ $text or '' }}
+            {{ isset($text) ? $text : '' }}
         </button>
 
 @if(isset($url))

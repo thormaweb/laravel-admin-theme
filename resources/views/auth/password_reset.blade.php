@@ -28,7 +28,7 @@
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">perm_identity</i>
                                 </div>
-                                <input type="email" class="form-control" name="email" value="{{ $email or old('email') }}">
+                                <input type="email" class="form-control" name="email" value="{{ isset($email) ? $email : old('email') }}">
                             </div>
                             @if ($errors->has('email'))
 

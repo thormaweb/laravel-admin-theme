@@ -1,6 +1,6 @@
 <div class="form-group pmd-textfield pmd-textfield-floating-label{{ $errors->has($name) ? ' has-error' : '' }}">
 
-    <label for="{{$id or ''}}" class="control-label">{{$label or ''}}</label>
+    <label for="{{isset($id) ? $id : ''}}" class="control-label">{{isset($label) ? $label : ''}}</label>
 
     @php
 
@@ -10,10 +10,10 @@
 
     @if($type === 'password')
 
-        <input type="password" id="{{$id or ($id = 'input-' . rand()) }}" name="{{ $name }}" class="form-control" value="{{ old($name) }}" {{ isset($readonly) ? !$readonly ?: 'readonly' : '' }}>
+        <input type="password" id="{{isset($id) ? $id :  ($id = 'input-' . rand()) }}" name="{{ $name }}" class="form-control" value="{{ old($name) }}" {{ isset($readonly) ? !$readonly ?: 'readonly' : '' }}>
     @else
 
-        <input type="{{ $type }}" id="{{$id or ($id = 'input-' . rand()) }}" name="{{ $name }}" class="form-control" value="{{ old($name, isset($model) ? $model->{$name} : '') }}" {{ isset($readonly) ? !$readonly ?: 'readonly' : '' }}>
+        <input type="{{ $type }}" id="{{isset($id) ? $id :  ($id = 'input-' . rand()) }}" name="{{ $name }}" class="form-control" value="{{ old($name, isset($model) ? $model->{$name} : '') }}" {{ isset($readonly) ? !$readonly ?: 'readonly' : '' }}>
     @endif
 
     @if ($errors->has($name))

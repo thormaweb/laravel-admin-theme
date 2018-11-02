@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use iVirtual\AdminTheme\Traits\AdminThemeUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

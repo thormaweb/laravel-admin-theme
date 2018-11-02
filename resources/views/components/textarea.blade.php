@@ -1,8 +1,8 @@
 <div class="form-group pmd-textfield pmd-textfield-floating-label {{ is_null(old($name, isset($model) ? $model->{$name} : null)) ?: 'pmd-textfield-floating-label-completed' }}{{ $errors->has($name) ? ' has-error' : '' }}">
 
-    <label for="{{$id or ($id = 'textarea-' . rand())}}" class="control-label">{{$label or ''}}</label>
+    <label for="{{isset($id) ? $id :  ($id = 'textarea-' . rand())}}" class="control-label">{{isset($label) ? $label : ''}}</label>
 
-    <textarea id="{{$id or ''}}" name="{{$name}}" class="form-control" {{ isset($readonly) ? !$readonly ?: 'readonly' : '' }}>{{ old($name, isset($model) ? $model->{$name} : null) }}</textarea>
+    <textarea id="{{isset($id) ? $id : ''}}" name="{{$name}}" class="form-control" {{ isset($readonly) ? !$readonly ?: 'readonly' : '' }}>{{ old($name, isset($model) ? $model->{$name} : null) }}</textarea>
 
     @if ($errors->has($name))
 

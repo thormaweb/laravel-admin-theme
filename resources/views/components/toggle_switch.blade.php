@@ -1,6 +1,6 @@
 <div class="form-group pmd-textfield">
 
-    <label class="control-label">{{ $label or '' }}</label>
+    <label class="control-label">{{ isset($label) ? $label : '' }}</label>
 
     <input type="hidden" name="{{ $name }}" value="0">
     <div class="pmd-switch">

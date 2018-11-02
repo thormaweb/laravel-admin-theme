@@ -3,7 +3,7 @@
 @endphp
 
 <div class="form-group pmd-textfield pmd-textfield-floating-label{{ $errors->has($name) ? ' has-error' : '' }}">
-    <label for="input-{{ $rand }}" class="control-label">{{ $label or '' }}</label>
+    <label for="input-{{ $rand }}" class="control-label">{{ isset($label) ? $label : '' }}</label>
     <input name="{{ $name }}" id="input-{{ $rand }}" type="text" data-datepicker-popup="true" data-datepicker="datepicker-popup-inline-{{ $rand }}" class="form-control" data-target="#datepicker-dialog-{{ $rand }}" data-toggle="modal" value="{{ old($name, isset($model) ? $model->{$name} : '') }}">
     @if ($errors->has($name))
 

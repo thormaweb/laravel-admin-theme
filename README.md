@@ -116,18 +116,19 @@ $ php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryService
 
 #### User model
 
-Your User model needs to implements `HasMediaConversions` interface and use `AdminThemeUserTrait` trait:
+Your User model needs to implements `HasMedia` interface and use `AdminThemeUserTrait` trait:
 ```php
 <?php
 
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use iVirtual\AdminTheme\Traits\AdminThemeUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class User extends Authenticatable implements HasMediaConversions
+class User extends Authenticatable implements HasMedia
 {
     use Notifiable, AdminThemeUserTrait;
 ...
@@ -238,4 +239,13 @@ public function handle($request, Closure $next, $guard = null)
 
         return $next($request);
     }
-```
+``` 
+
+### Add spatie middlewares
+
+In the `app\Http\Kernel.php` file add the followin middlewares to the `$routeMiddleware` array:
+
+```php
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+```        
