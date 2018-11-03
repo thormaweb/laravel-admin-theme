@@ -77,6 +77,10 @@ class AdminThemeRegisterBladeDirectives
         Blade::directive('adminThemeButton', function($expression) {
             return "<?php \$__env->startComponent('admin-theme::components.button', $expression); echo \$__env->renderComponent(); ?>";
         });
+
+        Blade::directive('adminThemeDeletePopup', function($expression) {
+            return "<?php \$__env->startComponent('admin-theme::components.delete_popup', $expression); echo \$__env->renderComponent(); ?>";
+        });
     }
 
     /**

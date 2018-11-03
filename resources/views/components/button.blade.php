@@ -1,5 +1,5 @@
 @if(isset($url))
-    <a id="{{ isset($id) ? $id : '' }}" href="{{ url($url) }}">
+    <a id="{{ isset($id) ? $id : '' }}" href="{{ url($url) }}" target="{{ isset($target) ? $target : '' }}">
 @endif
 
         <button id="{{ isset($id) ? $id : '' }}"

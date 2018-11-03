@@ -187,9 +187,6 @@ class RouteRegistrar
                 'web',
 
                 'auth',
-
-                'permission:users-create'
-
             ],
 
             'namespace' => '\iVirtual\AdminTheme\Http\Controllers'
@@ -204,8 +201,6 @@ class RouteRegistrar
 
             $router->group([
 
-                'middleware' => ['permission:users-create']
-
             ], function ($router ) {
 
                 $router->get('/' . config('admin-theme.path.create'), [
@@ -219,8 +214,6 @@ class RouteRegistrar
             });
 
             $router->group([
-
-                'middleware' => ['permission:users-update']
 
             ], function ($router ) {
 
@@ -239,11 +232,9 @@ class RouteRegistrar
 
             $router->group([
 
-                'middleware' => ['permission:users-delete']
-
             ], function ($router ) {
 
-                $router->get('/{id}/' . config('admin-theme.path.delete'), [
+                $router->delete('/{id}/' . config('admin-theme.path.delete'), [
                     'uses' => 'UserController@delete',
                 ])
                     ->name('ivi_admin_theme_user_delete')

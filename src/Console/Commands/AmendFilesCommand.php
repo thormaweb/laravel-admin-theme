@@ -59,13 +59,11 @@ class AmendFilesCommand extends Command
         File::delete(
             [
                 base_path('app/User.php'),
-                base_path('app/Http/Kernel.php'),
                 base_path('database/seeds/DatabaseSeeder.php'),
                 base_path('app/Providers/AppServiceProvider.php'),
             ]
         );
         File::copy(__DIR__ . '/stubs/User.php', base_path('app/User.php'));
-        File::copy(__DIR__ . '/stubs/Kernel.php', base_path('app/Http/Kernel.php'));
         File::copy(__DIR__ . '/stubs/DatabaseSeeder.php', base_path('database/seeds/DatabaseSeeder.php'));
         File::copy(__DIR__ . '/stubs/AppServiceProvider.php', base_path('app/Providers/AppServiceProvider.php'));
 

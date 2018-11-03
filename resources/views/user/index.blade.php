@@ -64,12 +64,9 @@
 
                         @can('users-delete')
 
-                            @adminThemeButton([
+                            @adminThemeDeletePopup([
+                                'id' => $user->id,
                                 'url' => url()->route('ivi_admin_theme_user_delete', ['id' => $user->id]),
-                                'icon' => 'delete',
-                                'style' => 'flat',
-                                'size' => 'sm',
-                                'hover' => __('admin-theme::user.delete')
                             ])
 
                         @endcan

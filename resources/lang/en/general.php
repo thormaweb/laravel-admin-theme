@@ -9,5 +9,9 @@ return [
     'yes' => 'Yes',
 	'no' => 'No',
 
-	'support' => 'Support',
+    'support' => 'Support',
+
+    'delete' => 'DELETE',
+    'delete_ask' => 'Are you sure want to delete this content?',
+    'delete_content' => 'Delete content'
 ];
