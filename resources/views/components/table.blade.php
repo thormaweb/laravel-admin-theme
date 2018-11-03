@@ -1,29 +1,37 @@
-<div class="table-responsive">
+<div class="component-box">
 
-    <table class="table table-mc-red pmd-table">
+	<div class="pmd-card pmd-z-depth pmd-card-custom-view">
+    
+		<div class="pmd-table-card">
 
-        <thead>
+            <table class="table pmd-table">
 
-            <tr>
+                <thead>
 
-                {{ isset($head) ? $head : '' }}
+                    <tr>
 
-                @if(isset($actions))
+                        {{ isset($head) ? $head : '' }}
 
-                    <th class="text-center" style="width: {{ $actions }}%">{{ __('admin-theme::general.actions') }}</th>
+                        @if(isset($actions))
 
-                @endif
+                            <th class="text-center" style="width: {{ $actions }}%">{{ __('admin-theme::general.actions') }}</th>
 
-            </tr>
+                        @endif
 
-        </thead>
+                    </tr>
 
-        <tbody>
+                </thead>
 
-            {{ $slot }}
+                <tbody>
 
-        </tbody>
+                    {{ $slot }}
 
-    </table>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
 
 </div>

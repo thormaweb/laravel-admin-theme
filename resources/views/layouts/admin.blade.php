@@ -8,9 +8,7 @@
 
             <div class="navbar-header">
 
-                <a href="javascript:void(0);"
-                   class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i
-                            class="material-icons">menu</i></a>
+                <a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1200" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons md-light">menu</i></a>	
 
                 <a href="{{ config('admin-theme.panel_path') }}" class="navbar-brand">
                     <img src="{{ url(config('admin-theme.logo')) }}" alt="{{ config('app.name') }}" height="50">
@@ -24,8 +22,7 @@
 
     <div class="pmd-sidebar-overlay"></div>
 
-    <aside class="pmd-sidebar sidebar-default pmd-sidebar-slide-push pmd-sidebar-left pmd-sidebar-open bg-fill-darkblue sidebar-with-icons"
-           role="navigation">
+<aside id="basicSidebar" class="pmd-sidebar  sidebar-default pmd-sidebar-slide-push pmd-sidebar-left pmd-sidebar-open bg-fill-darkblue sidebar-with-icons" role="navigation">
 
         <ul class="nav pmd-sidebar-nav">
 

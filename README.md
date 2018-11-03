@@ -240,12 +240,3 @@ public function handle($request, Closure $next, $guard = null)
         return $next($request);
     }
 ``` 
-
-### Add spatie middlewares
-
-In the `app\Http\Kernel.php` file add the followin middlewares to the `$routeMiddleware` array:
-
-```php
-        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
-        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
-```        
