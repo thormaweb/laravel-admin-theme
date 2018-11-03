@@ -14,7 +14,7 @@
 
     @if(isset($editor))
         @push('scripts')
-        <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+
         <script>
             @if(isset($filemanager))
                 var editor_config = {

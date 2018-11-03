@@ -98,6 +98,7 @@
     <!-- Select2 -->
     <script src="{{ asset('vendor/ivirtual/admin-theme/js/select2.full.js') }}"></script>
     <script src="{{ asset('vendor/ivirtual/admin-theme/js/pmd-select2.js') }}"></script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             <!-- Select Multiple Tags -->
