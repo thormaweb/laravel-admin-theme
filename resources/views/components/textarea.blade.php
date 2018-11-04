@@ -1,6 +1,6 @@
 <div class="form-group pmd-textfield pmd-textfield-floating-label {{ is_null(old($name, isset($model) ? $model->{$name} : null)) ?: 'pmd-textfield-floating-label-completed' }}{{ $errors->has($name) ? ' has-error' : '' }}">
 
-    <label for="{{isset($id) ? $id :  ($id = 'textarea-' . rand())}}" class="control-label">{{isset($label) ? $label : ''}}</label>
+    <label style="{{ isset($editor) ? 'position:relative;top:-24px;' : '' }}" for="{{isset($id) ? $id :  ($id = 'textarea-' . rand())}}" class="control-label">{{isset($label) ? $label : ''}}</label>
 
     <textarea id="{{isset($id) ? $id : ''}}" name="{{$name}}" class="form-control" {{ isset($readonly) ? !$readonly ?: 'readonly' : '' }}>{{ old($name, isset($model) ? $model->{$name} : null) }}</textarea>
 

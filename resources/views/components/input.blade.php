@@ -13,7 +13,7 @@
         <input type="password" id="{{isset($id) ? $id :  ($id = 'input-' . rand()) }}" name="{{ $name }}" class="form-control" value="{{ old($name) }}" {{ isset($readonly) ? !$readonly ?: 'readonly' : '' }}>
     @else
 
-        <input type="{{ $type }}" id="{{isset($id) ? $id :  ($id = 'input-' . rand()) }}" name="{{ $name }}" class="form-control" value="{{ old($name, isset($model) ? $model->{$name} : '') }}" {{ isset($readonly) ? !$readonly ?: 'readonly' : '' }}>
+        <input type="{{ $type }}" id="{{isset($id) ? $id :  ($id = 'input-' . rand()) }}" name="{{ $name }}" class="form-control" value="{{ old($name, isset($model) ? $model->{$name} : '') }}" {{ isset($readonly) ? !$readonly ?: 'readonly' : '' }} step="{{ isset($step) ? $step : 'any' }}">
     @endif
 
     @if ($errors->has($name))
