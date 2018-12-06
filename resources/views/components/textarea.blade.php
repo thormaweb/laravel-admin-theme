@@ -19,6 +19,7 @@
             @if(isset($filemanager))
                 var editor_config = {
                         path_absolute : "/",
+                        height: {{ isset($height) ? $height : 300 }},
                         selector: "textarea[name={{$name}}]",
                         plugins: [
                             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -32,7 +33,7 @@
                             var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
                             var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-                            var cmsURL = editor_config.path_absolute + '{{ config('lfm.url_prefix') }}?field_name=' + field_name;
+                            var cmsURL = '/' + '{{ config('lfm.url_prefix') }}?field_name=' + field_name;
                             if (type == 'image') {
                                 cmsURL = cmsURL + "&type=Images";
                             } else {
@@ -51,7 +52,7 @@
                     };
 
             @else
-                var editor_config = {selector:"textarea[name={{$name}}]"};
+                var editor_config = {selector:"textarea[name={{$name}}]", height: {{ isset($height) ? $height : 300 }},};
             @endif
 
             // Init editor
