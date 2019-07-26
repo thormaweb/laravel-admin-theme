@@ -1,14 +1,14 @@
 <?php
 
-namespace iVirtual\AdminTheme;
+namespace ThormaWeb\AdminTheme;
 
 use Illuminate\Support\Composer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
-use iVirtual\AdminTheme\Console\Commands\InstallCommand;
-use iVirtual\AdminTheme\Console\Commands\AmendFilesCommand;
+use ThormaWeb\AdminTheme\Console\Commands\InstallCommand;
+use ThormaWeb\AdminTheme\Console\Commands\AmendFilesCommand;
 
 class AdminThemeServiceProvider extends ServiceProvider
 {
@@ -64,7 +64,7 @@ class AdminThemeServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $this->app->bind('ivirtual-admin-theme', function () {
+        $this->app->bind('ThormaWeb-admin-theme', function () {
             return new AdminTheme();
         });
 
@@ -129,7 +129,7 @@ class AdminThemeServiceProvider extends ServiceProvider
         ], 'lang');
 
         $this->publishes([
-            __DIR__ . '/../public/' => public_path('vendor/ivirtual/admin-theme/'),
+            __DIR__ . '/../public/' => public_path('vendor/ThormaWeb/admin-theme/'),
         ], 'public');
     }
 
@@ -143,7 +143,7 @@ class AdminThemeServiceProvider extends ServiceProvider
         View::composer([
             'admin-theme::layouts.admin',
             'admin-theme::profile'
-        ], 'iVirtual\AdminTheme\ViewComposers\AdminViewComposer');
+        ], 'ThormaWeb\AdminTheme\ViewComposers\AdminViewComposer');
     }
 
     /**

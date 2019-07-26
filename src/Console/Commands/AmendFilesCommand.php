@@ -1,6 +1,6 @@
 <?php
 
-namespace iVirtual\AdminTheme\Console\Commands;
+namespace ThormaWeb\AdminTheme\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Composer;

@@ -1,6 +1,6 @@
 <?php
 
-namespace iVirtual\AdminTheme\Http\Requests;
+namespace ThormaWeb\AdminTheme\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;

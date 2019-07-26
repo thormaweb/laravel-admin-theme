@@ -19,9 +19,9 @@ class AdminThemeSeeder extends Seeder
         // Admin
         $admin = Role::create(['name' => 'admin']);
         $admin->givePermissionTo([
-            Permission::create(['name' => 'users-create']),
-            Permission::create(['name' => 'users-update']),
-            Permission::create(['name' => 'users-delete']),
+            Permission::create(['name' => 'users:create']),
+            Permission::create(['name' => 'users:update']),
+            Permission::create(['name' => 'users:delete']),
         ]);
 
         /**

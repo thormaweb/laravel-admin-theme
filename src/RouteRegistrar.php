@@ -1,6 +1,6 @@
 <?php
 
-namespace iVirtual\AdminTheme;
+namespace ThormaWeb\AdminTheme;
 
 use Illuminate\Contracts\Routing\Registrar as Router;
 
@@ -99,7 +99,7 @@ class RouteRegistrar
 
             ],
 
-            'namespace' => '\iVirtual\AdminTheme\Http\Controllers'
+            'namespace' => '\ThormaWeb\AdminTheme\Http\Controllers'
 
         ], function ($router) {
 
@@ -152,7 +152,7 @@ class RouteRegistrar
 
             ],
 
-            'namespace' => '\iVirtual\AdminTheme\Http\Controllers'
+            'namespace' => '\ThormaWeb\AdminTheme\Http\Controllers'
 
         ], function ($router) {
 
@@ -189,7 +189,7 @@ class RouteRegistrar
                 'auth',
             ],
 
-            'namespace' => '\iVirtual\AdminTheme\Http\Controllers'
+            'namespace' => '\ThormaWeb\AdminTheme\Http\Controllers'
 
         ], function ($router) {
 

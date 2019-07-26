@@ -4,7 +4,7 @@
 
     @adminTheme('card', ['title' => __('admin-theme::user.index')])
 
-        @can('users-create')
+        @can('users:create')
 
             @slot('actions')
 
@@ -50,7 +50,7 @@
                             ])
                         @endif
 
-                        @can('users-update')
+                        @can('users:update')
 
                             @adminThemeButton([
                                 'url' => url()->route('ivi_admin_theme_user_edit', ['id' => $user->id]),
@@ -62,7 +62,7 @@
 
                         @endcan
 
-                        @can('users-delete')
+                        @can('users:delete')
 
                             @adminThemeDeletePopup([
                                 'id' => $user->id,

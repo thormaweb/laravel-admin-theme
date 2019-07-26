@@ -1,6 +1,6 @@
-# [iVirtual.la](https://ivirtual.la) Laravel Admin Theme
+# [ThormaWeb](https://thormaweb.com) Laravel Admin Theme
 
-Laravel Material Design Admin dashboard with out of the box Users permissions and tons of Blade components and helpers for scaffolding new projects.
+Laravel Admin dashboard with out of the box Users permissions and tons of Blade components and helpers for scaffolding new projects.
 
 // TODO: intro video
 
@@ -18,13 +18,13 @@ To [Propeller](https://github.com/digicorp/propeller) because we use his CSS Adm
 
 ## Installation
 
-Installing iVirtual Admin Theme is easy if you install this package from zero (if you are in a fresh new Laravel installation). If you are willing to use this powerfull package in an existing project, it's not that hard to implement but you have to skyp this automatic installation proces because is only usefull in a new projects. Go to the [manual installation section](#manual-installation) for the exact steps.
+Installing ThormaWeb Admin Theme is easy if you install this package from zero (if you are in a fresh new Laravel installation). If you are willing to use this powerfull package in an existing project, it's not that hard to implement but you have to skyp this automatic installation proces because is only usefull in a new projects. Go to the [manual installation section](#manual-installation) for the exact steps.
 
 ### Get the package trougth composer
 
 Run this composer command in you shell.
 ```shell
-composer require ivirtual-la/laravel-admin-theme
+composer require thormaweb/laravel-admin-theme
 ```
 
 Run the Admin Theme install command and follow the instructions.
@@ -87,7 +87,7 @@ That file is the master you should extend your views from.
 
 Run composer this composer command in you shell.
 ```shell
-composer require ivirtual-la/laravel-admin-theme
+composer require thormaweb/laravel-admin-theme
 ```
 
 ### Publish
@@ -95,7 +95,7 @@ composer require ivirtual-la/laravel-admin-theme
 Now you first need to publish the package files, this include the config file, the public files for the theme a Seeder and some views
 
 ```shell
-$ php artisan vendor:publish --provider="iVirtual\AdminTheme\AdminThemeServiceProvider"
+$ php artisan vendor:publish --provider="ThormaWeb\AdminTheme\AdminThemeServiceProvider"
 ```
 
 We use `spatie/laravel-permissions` package so you need to get the migrations table and the config file.
@@ -125,7 +125,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use iVirtual\AdminTheme\Traits\AdminThemeUserTrait;
+use ThormaWeb\AdminTheme\Traits\AdminThemeUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements HasMedia
@@ -174,7 +174,7 @@ If you want to use the package routes you need to call them in the `app/Http/Pro
 The routes prefix are loaded from the config file.
 
 ```php
-use iVirtual\AdminTheme\AdminTheme;
+use ThormaWeb\AdminTheme\AdminTheme;
 
 class AppServiceProvider extends ServiceProvider
 {

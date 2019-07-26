@@ -1,14 +1,14 @@
 <?php
 
-namespace iVirtual\AdminTheme\Http\Controllers;
+namespace ThormaWeb\AdminTheme\Http\Controllers;
 
 use App\User;
 use Spatie\Permission\Models\Role;
-use iVirtual\AdminTheme\AdminTheme;
+use ThormaWeb\AdminTheme\AdminTheme;
 use Illuminate\Support\Facades\Auth;
-use iVirtual\AdminTheme\Http\Requests\UserRequest;
+use ThormaWeb\AdminTheme\Http\Requests\UserRequest;
 use Illuminate\Routing\Controller as BaseController;
-use iVirtual\AdminTheme\Http\Requests\ProfileRequest;
+use ThormaWeb\AdminTheme\Http\Requests\ProfileRequest;
 
 class UserController extends BaseController
 {

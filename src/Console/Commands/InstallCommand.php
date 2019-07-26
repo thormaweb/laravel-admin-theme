@@ -1,6 +1,6 @@
 <?php
 
-namespace iVirtual\AdminTheme\Console\Commands;
+namespace ThormaWeb\AdminTheme\Console\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Question\Question;
@@ -40,7 +40,7 @@ class InstallCommand extends Command
             }
 
             $this->line(PHP_EOL . '1) Publishing Admin Theme assets, migrations and config files...');
-            $this->call('vendor:publish', ['--provider' => 'iVirtual\AdminTheme\AdminThemeServiceProvider',]);
+            $this->call('vendor:publish', ['--provider' => 'ThormaWeb\AdminTheme\AdminThemeServiceProvider',]);
 
             $this->line(PHP_EOL . '2) Publishing Permissions migrations and config file');
             $this->call('vendor:publish', ['--provider' => 'Spatie\Permission\PermissionServiceProvider',]);

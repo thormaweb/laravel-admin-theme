@@ -1,6 +1,6 @@
 <?php
 
-namespace iVirtual\AdminTheme;
+namespace ThormaWeb\AdminTheme;
 
 use Illuminate\Support\Facades\Route;
 

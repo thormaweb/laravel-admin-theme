@@ -1,11 +1,10 @@
 {
-  "name": "ivirtual-la/laravel-admin-theme",
+  "name": "thormaweb/laravel-admin-theme",
   "description":
-    "Material Design Admin dashboard for Laravel with out of the box Users roles management for scaffolding new projects.",
+    "Beautifully designed administration panel for Laravel with out of the box Users roles management for scaffolding new projects.",
   "type": "library",
   "keywords": [
-    "ivirtual",
-    "material design",
+    "thormaweb",
     "laravel",
     "admin",
     "dashboard",
@@ -13,17 +12,12 @@
     "user roles",
     "roles"
   ],
-  "homepage": "https://github.com/iVirtual-la/laravel-admin-theme",
+  "homepage": "https://github.com/thormaweb/laravel-admin-theme",
   "license": "MIT",
   "authors": [
     {
-      "name": "fkraefft",
-      "email": "fkraefft@ivirtual.la",
-      "role": "Developer"
-    },
-    {
       "name": "emilianotisato",
-      "email": "emilianotisato@gmail.com",
+      "email": "emiliano@thormaweb.com",
       "role": "Developer"
     }
   ],
@@ -40,12 +34,12 @@
   },
   "autoload": {
     "psr-4": {
-      "iVirtual\\AdminTheme\\": "src/"
+      "ThormaWeb\\AdminTheme\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "iVirtual\\AdminTheme\\Test\\": "tests"
+      "ThormaWeb\\AdminTheme\\Test\\": "tests"
     }
   },
   "scripts": {
@@ -56,10 +50,10 @@
   },
   "extra": {
     "laravel": {
-      "providers": ["iVirtual\\AdminTheme\\AdminThemeServiceProvider"]
+      "providers": ["ThormaWeb\\AdminTheme\\AdminThemeServiceProvider"]
     },
     "aliases": {
-            "AdminTheme": "iVirtual\\AdminTheme\\AdminThemeFacade"
+            "AdminTheme": "ThormaWeb\\AdminTheme\\AdminThemeFacade"
         }
   }
 }

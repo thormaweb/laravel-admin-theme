@@ -1,6 +1,6 @@
 <?php
 
-namespace iVirtual\AdminTheme\ViewComposers;
+namespace ThormaWeb\AdminTheme\ViewComposers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;

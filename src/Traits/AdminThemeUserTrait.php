@@ -1,6 +1,6 @@
 <?php
 
-namespace iVirtual\AdminTheme\Traits;
+namespace ThormaWeb\AdminTheme\Traits;
 
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\Models\Media;

@@ -1,11 +1,11 @@
 <?php
 
-namespace iVirtual\AdminTheme\Http\Controllers;
+namespace ThormaWeb\AdminTheme\Http\Controllers;
 
 use App\User;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
-use iVirtual\AdminTheme\Http\Requests\ProfileRequest;
+use ThormaWeb\AdminTheme\Http\Requests\ProfileRequest;
 
 class AdminController extends BaseController
 {

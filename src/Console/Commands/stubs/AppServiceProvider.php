@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use iVirtual\AdminTheme\AdminTheme;
+use ThormaWeb\AdminTheme\AdminTheme;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

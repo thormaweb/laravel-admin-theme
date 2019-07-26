@@ -1,5 +1,5 @@
 
-@can('users-create')
+@can('users:create')
 
     @adminTheme('menu_item', ['separator' => true])
 
@@ -19,7 +19,7 @@
 
             @endAdminTheme
 
-            @can('users-create')
+            @can('users:create')
 
                 @adminTheme('menu_item', ['url' => url()->route('ivi_admin_theme_user_create')])
 
