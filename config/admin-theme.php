@@ -47,7 +47,7 @@ return [
     | Set here the path to your client/project logo file
     | The logo file should have a size of 512px x 512px
     */
-    'logo' => '/vendor/ThormaWeb/admin-theme/images/logo.png',
+    'logo' => '/vendor/thormaweb/admin-theme/images/logo.png',
 
     /*
     |--------------------------------------------------------------------------
@@ -57,7 +57,7 @@ return [
     | Set here the path for the default avatar file, before the user choose his own
     | The file should have a size of 250 x 250
     */
-    'avatar' => '/vendor/ThormaWeb/admin-theme/images/avatar.png',
+    'avatar' => '/vendor/thormaweb/admin-theme/images/avatar.png',
 
     'date_formats' => [
 

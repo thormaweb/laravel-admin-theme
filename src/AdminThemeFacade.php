@@ -8,6 +8,6 @@ class AdminThemeFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'ThormaWeb-admin-theme';
+        return 'thormaweb-admin-theme';
     }
 }

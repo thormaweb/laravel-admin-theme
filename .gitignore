@@ -2,3 +2,6 @@
 .idea/
 .fuse*
 auth.json
+build
+composer.lock
+tests/temp

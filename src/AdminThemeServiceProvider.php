@@ -64,7 +64,7 @@ class AdminThemeServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $this->app->bind('ThormaWeb-admin-theme', function () {
+        $this->app->bind('thormaweb-admin-theme', function () {
             return new AdminTheme();
         });
 
@@ -129,7 +129,7 @@ class AdminThemeServiceProvider extends ServiceProvider
         ], 'lang');
 
         $this->publishes([
-            __DIR__ . '/../public/' => public_path('vendor/ThormaWeb/admin-theme/'),
+            __DIR__ . '/../public/' => public_path('vendor/thormaweb/admin-theme/'),
         ], 'public');
     }
 

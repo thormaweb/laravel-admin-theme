@@ -35,7 +35,7 @@ php artisan admin-theme:install
 ## Configuration
 
 It's mandatory that you set the default filesystem in `config/filesystems.php` since Media Library package use the default Public Disk in laravel filesystem config. Of course you can customize that:
-[https://docs.spatie.be/laravel-medialibrary/v6/installation-setup](https://docs.spatie.be/laravel-medialibrary/v6/installation-setup)
+[https://docs.spatie.be/laravel-medialibrary/v7/introduction/](https://docs.spatie.be/laravel-medialibrary/v7/introduction/)
 
 If you are not sure on how to config this, refer to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk)
 
@@ -135,7 +135,7 @@ class User extends Authenticatable implements HasMedia
 ```
 
 It's mandatory that you set the default filesystem in `config/filesystems.php` since Media Library package use the default Public Disk in laravel filesystem config. Of course you can customize that:
-[https://docs.spatie.be/laravel-medialibrary/v6/installation-setup](https://docs.spatie.be/laravel-medialibrary/v6/installation-setup)
+[https://docs.spatie.be/laravel-medialibrary/v7/introduction/](https://docs.spatie.be/laravel-medialibrary/v7/introduction/)
 
 If you are not sure on how to config this, refer to Laravel documentation to properly configure the Public Disk [https://laravel.com/docs/5.5/filesystem#the-public-disk](https://laravel.com/docs/5.5/filesystem#the-public-disk)
 
